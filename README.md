@@ -1,5 +1,8 @@
 # ralph-architecture-sweep
 
+[![npm version](https://img.shields.io/npm/v/ralph-architecture-sweep.svg)](https://www.npmjs.com/package/ralph-architecture-sweep)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A [Claude Code](https://docs.claude.com/en/docs/claude-code) **skill** that drives [**ralph**](https://github.com/frankbria/ralph-claude-code) through an **architecture-deepening sweep** and files the findings as **vertical-slice issues** — over your whole codebase or a chosen part.
 
 It runs the "deepening" methodology — deep vs shallow modules, the **deletion test**, seams — as an **analysis-only** pass, **delta-aware** (skips already-filed/shipped seams), and writes ready-to-grab issues under `.scratch/`. Optionally chain ralph to implement them.
@@ -14,14 +17,14 @@ It runs the "deepening" methodology — deep vs shallow modules, the **deletion 
 **With `npx` (recommended)** — run from your project root:
 
 ```bash
-npx github:Aijo24/ralph-architecture-sweep            # → ./.claude/skills/ralph-architecture-sweep
-npx github:Aijo24/ralph-architecture-sweep --global   # → ~/.claude/skills/ (all projects)
+npx ralph-architecture-sweep            # → ./.claude/skills/ralph-architecture-sweep
+npx ralph-architecture-sweep --global   # → ~/.claude/skills/ (all projects)
 ```
 
-Once it's published to the npm registry, the short form also works:
+No npm account / want the bleeding edge? Install straight from GitHub instead:
 
 ```bash
-npx ralph-architecture-sweep
+npx github:Aijo24/ralph-architecture-sweep
 ```
 
 **Manual** — copy the skill folder yourself:
