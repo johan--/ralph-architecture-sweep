@@ -1,7 +1,12 @@
 #!/usr/bin/env node
-// Installer for the "ralph-architecture-sweep" Claude Code skill.
+// Installer for the "ralph-architecture-sweep" Claude Code skill (FALLBACK path).
 // Copies the bundled skill into a project's (or the global) .claude/skills/ dir.
 // No dependencies — pure Node (>=16.7 for fs.cpSync).
+//
+// Prefer `npx skills add Aijo24/ralph-architecture-sweep` (tracked by skills.sh) or the
+// Claude Code plugin (`/plugin install ralph-architecture-sweep@aijo24`, which adds version
+// tracking + `/plugin update`). This installer exists for setups without either.
+// Maintainers: keep `version` in sync across package.json and .claude-plugin/plugin.json.
 import { cpSync, existsSync, mkdirSync, readdirSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";

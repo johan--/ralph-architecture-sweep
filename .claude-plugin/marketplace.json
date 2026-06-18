@@ -1,0 +1,12 @@
+{
+  "name": "aijo24",
+  "owner": { "name": "Aijo24" },
+  "description": "Aijo24's Claude Code skills marketplace — home of ralph-architecture-sweep.",
+  "plugins": [
+    {
+      "name": "ralph-architecture-sweep",
+      "source": "./",
+      "description": "Drive the ralph autonomous loop to sweep a codebase for architecture-deepening opportunities (the deletion-test methodology) and file them as vertical-slice issues — whole repo or a chosen part."
+    }
+  ]
+}

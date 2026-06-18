@@ -9,7 +9,7 @@ Headless ralph (`claude -p`, JSON mode) **commits only at the END of a successfu
 Run the areas in parallel via the agent tool. Each sub-agent:
 
 - operates in the **worktree** (absolute paths — it's at the remote tip, so it sees the shipped refactors),
-- **reads the area's existing epic(s) first** to build the exclusion list,
+- **reads the area's existing epic(s) first — plus any `CONTEXT.md` / ADR log** (the settled-decision record, e.g. the one `domain-modeling` writes) — to build the exclusion list,
 - applies the **deletion test** + deep/shallow/seam vocab,
 - returns ONLY genuinely-new candidates (or an explicit "zero"), each with: title, strength, **evidence** (files + symbols + call-site count, **with the exact grep/command that produced the count** so it can be replayed), proposed seam, deletion-test verdict, and an exclusion check ("not a re-proposal of `<epic/issue>` because …").
 
@@ -20,7 +20,7 @@ Run the areas in parallel via the agent tool. Each sub-agent:
 After the proposal fan-out, **independently re-ground every candidate** against the remote tip before writing anything (a fresh verifier sub-agent per area works well — it must not see the proposer's reasoning, only its claims):
 
 1. **Replay the evidence**: run the candidate's own grep/commands; the files, symbols and call-site count must reproduce. Off-by-a-couple is fine to correct in place; "can't reproduce" kills the candidate.
-2. **Re-argue the deletion test** from the call sites found, not from the proposer's summary. Verdict flips → drop.
+2. **Re-argue the deletion test** from the call sites found, not from the proposer's summary (the `codebase-design` vocabulary — depth, a *real* seam vs a single-adapter hypothetical — is the rubric for borderline verdicts). Verdict flips → drop.
 3. **Re-check the exclusion list**: is this a re-proposal of a filed/shipped seam or a settled ADR under a new name?
 4. **Strength is earned, not asserted**: *Strong* needs ≥ 3 independent call sites (or 2+ adapters over the same data) plus a deletion-test verdict that survives step 2; anything weaker is *Worth-exploring*. Downgrade silently; never upgrade.
 
@@ -35,7 +35,7 @@ The same seam often surfaces from two areas (each sees its own call sites). Befo
 Every issue file must pass this checklist; fix or drop, don't commit a partial:
 
 - [ ] *What to build* names the deep module/seam **and** lists every call site to repoint (paths, not "etc.")
-- [ ] *Acceptance criteria* are checkable (tests at the new interface, old copies deleted)
+- [ ] *Acceptance criteria* are checkable — tests at the new interface (asserting behaviour **through** it, not reaching past it), old copies deleted
 - [ ] *Deletion-test verdict* is stated with the reasoning, not just "passes"
 - [ ] *Strength* matches the verification rubric above
 - [ ] *Blocked by* names a real issue file or "none"

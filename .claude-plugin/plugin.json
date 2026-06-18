@@ -1,0 +1,19 @@
+{
+  "name": "ralph-architecture-sweep",
+  "version": "0.2.0",
+  "description": "Drive the ralph autonomous loop to sweep a codebase for architecture-deepening opportunities (the deletion-test methodology) and file them as vertical-slice issues — whole repo or a chosen part.",
+  "author": { "name": "Aijo24" },
+  "homepage": "https://github.com/Aijo24/ralph-architecture-sweep#readme",
+  "repository": "https://github.com/Aijo24/ralph-architecture-sweep",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "skill",
+    "ralph",
+    "architecture",
+    "refactoring",
+    "deepening",
+    "codebase",
+    "agent"
+  ]
+}

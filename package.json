@@ -1,6 +1,6 @@
 {
   "name": "ralph-architecture-sweep",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Installer for the ralph-architecture-sweep Claude Code skill — drive the ralph loop to sweep a codebase for architecture-deepening opportunities and file them as vertical-slice issues, over a whole repo or a chosen part.",
   "type": "module",
   "bin": {
@@ -10,6 +10,7 @@
     "bin/",
     "skills/",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "engines": {

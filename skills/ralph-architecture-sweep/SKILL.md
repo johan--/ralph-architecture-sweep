@@ -1,13 +1,15 @@
 ---
 name: ralph-architecture-sweep
-description: Drive the ralph autonomous loop to run an architecture-deepening sweep (the "deletion test" methodology) and file the findings as vertical-slice issues, over a whole codebase or a chosen part. Use when you want ralph to find refactoring/deepening opportunities and turn them into independently-grabbable issues, repo-wide or for one subsystem.
+description: Drive the ralph autonomous loop to run an architecture-deepening sweep (the deletion-test methodology) and file the findings as independently-grabbable vertical-slice issues, over a whole codebase or a chosen part. Run it when you explicitly want a refactoring/deepening backlog, repo-wide or for one subsystem.
+disable-model-invocation: true
+argument-hint: "[path-or-subsystem]"
 ---
 
 # Ralph Architecture Sweep
 
 Drive **ralph** — the autonomous loop by Frank Bria ([frankbria/ralph-claude-code](https://github.com/frankbria/ralph-claude-code), MIT) — to sweep a codebase for **architecture-deepening opportunities** and file them as **vertical-slice issues** — over the **whole codebase or a user-chosen part**. Optionally chain ralph to implement + deploy the issues (project-specific — see [EXTENDING.md](EXTENDING.md)).
 
-Requires ralph installed in the repo (`ralph-claude-code/`, `.ralphrc`, `.ralph/`) and Claude Code. The deepening vocabulary (deep vs shallow modules, the deletion test, seams) and the vertical-slice issue format are the methodology this skill drives ralph through — from Matt Pocock's `improve-codebase-architecture` + `to-issues` skills ([mattpocock/skills](https://github.com/mattpocock/skills); see the repo README for full credits).
+Requires ralph installed in the repo (`ralph-claude-code/`, `.ralphrc`, `.ralph/`) and Claude Code. The methodology this skill drives ralph through comes from Matt Pocock's skills ([mattpocock/skills](https://github.com/mattpocock/skills); see the repo README for full credits): the deepening vocabulary (deep vs shallow modules, the deletion test, seams) from `codebase-design`, the vertical-slice issue format from `to-issues`, and the scan-and-deepen workflow as the headless analogue of `improve-codebase-architecture`. Those upstream skills are now interactive and **user-invoked**, so this skill **inlines the methodology and drives ralph through it headlessly** rather than calling them.
 
 ## Provenance & safety
 
